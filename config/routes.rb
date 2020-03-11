@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/hello' => 'greetings#hello_form'
   post '/hello' => 'greetings#index'
 
+  resources :posts
+
 end

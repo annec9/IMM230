@@ -1,0 +1,22 @@
+<head>
+<title>Database Hub</title>
+<style>
+    div {background-color: lightgrey; padding: 5px;}
+    body {margin: 1%; background-image: linear-gradient(to right, white, aliceblue);}
+    h1 {color:teal;}
+    a {color: grey;}
+    a:hover {color: powderblue;}
+    ul {color: grey;}
+</style>
+</head>
+<h1>Posts in my Database? More likely than you think</h1>
+
+<% @posts.each do |posts| %>
+    <div>
+    <h3><%= posts.title %></h3>
+    <p><%= posts.body%></p>
+    <%= link_to "...", post_path(posts), :class => 'btn btn-default' %>
+    </div><br>
+<% end %>
+
+<button onclick="window.location.href ='http://localhost:3000/posts/new'">new post</a></button>
