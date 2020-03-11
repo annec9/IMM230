@@ -1,0 +1,21 @@
+<head>
+<style>
+    body {background-image: linear-gradient(to right, white, aliceblue);}
+    h1 {color:teal;}
+    a {color: grey;}
+    a:hover {color: powderblue;}
+    ul {color: grey;}
+</style>
+</head>
+
+<h1>Please fill out this form to receive a greeting!</h1>
+
+<form action="/hello" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" />
+    A Greeting: <input type="text" name="greeting" required>
+    <br/>
+    Your Name: <input type="text" name="name" required>
+    <br/>
+    <input type="submit">
+</form> 
+
+
