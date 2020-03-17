@@ -1,4 +1,8 @@
-class PostsController < ApplicationController
+class PostsController < ApplicationController #accesing database 2 & delete route
+    #model : post
+    #var : title, body 
+
+
     def index
         @posts = Post.all
     end
@@ -10,7 +14,7 @@ class PostsController < ApplicationController
     def new
 
     end
-
+    
     def create
         @post = Post.new(post_params)
         @post.save
