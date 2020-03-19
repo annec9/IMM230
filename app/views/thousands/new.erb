@@ -1,0 +1,26 @@
+<head>
+<title>Give me your Data</title>
+<style>
+    body {margin: 1%; background-image: linear-gradient(to right, white, aliceblue);}
+    h1 {color:teal;}
+    a {color: grey;}
+    a:hover {color: powderblue;}
+    ul {color: grey;}
+</style>
+</head>
+
+<body>
+<h1>Insert Something into the Database x1000</h1>
+
+<%= form_for :thousands, url: thousands_path do |f| %>
+    <p>
+        <%= f.label :thing %> <br>
+        <%= f.text_field :thing %>
+    </p>
+
+
+    <p>
+        <%= f.submit %>
+    <p>
+
+<% end %></body>

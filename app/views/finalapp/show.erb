@@ -1,0 +1,68 @@
+<script>
+    function update() {
+        document.getElementById('text').value = teacount;
+        document.title = teacount + " Cups of Tea";    
+        document.getElementById('amountAutoClick').innerHTML = autoClick + " owned";
+        document.getElementById('costAutoClick').innerHTML = "Automatic Tea Brewer: " + ((autoClick + 1) * 12) + " tea";
+    }
+    
+    var teacount = 0;
+    var autoClick = 0;
+    
+    function timer() {
+        teacount = teacount + autoClick;
+        update()
+    }
+    setInterval(timer, 1000)
+</script>
+<html>
+<head>
+<title>Tea Shop</title>
+<style>
+    body {margin: 1%; text-align:center; background-image: linear-gradient(to right, white, aliceblue);}
+    h1 {color:teal;}
+    a {color: grey;}
+    a:hover {color: powderblue;}
+    ul {color: grey;}
+</style>
+</head>
+
+<body>
+<h1><%= @teashop.cafename %> Cafe</h1>
+<input type="text" id="text" disabled> cups of the tea
+
+<br><br>
+<button onclick="add()">Make some tea</button>
+
+<br><br><br><h2>Upgrades</h2>
+<span title="auto clicks every second" class="tooltipster"><button onclick="buyAutoClick()" id="costAutoClick">Automatic Tea Brewer: 12 tea</button> <span>
+<p id="amountAutoClick">0 Owned</p>
+
+<br><h2>Settings</h2>
+
+<button onClick="">Save</button> 
+<button onClick="">Change Cafe Name</button> 
+<button onClick="">Delete</button>
+<div><p> <br>
+ </p><div>
+
+
+
+
+ <script>
+ function add() {
+     teacount = teacount + 1
+    update()
+ }
+
+ function save(){}
+
+
+ function buyAutoClick() {
+     if (teacount >= ((autoClick+1) * 12)){
+        teacount = teacount - ((autoClick+1) * 12);
+        autoClick = autoClick + 1;
+        update()
+    }
+ }
+ </script>

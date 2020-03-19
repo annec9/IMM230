@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cafename: MyString
+  teacount: 1
+  autoclick: 1
+
+two:
+  cafename: MyString
+  teacount: 1
+  autoclick: 1

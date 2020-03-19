@@ -1,0 +1,2 @@
+class Thousand < ApplicationRecord
+end
