@@ -3,25 +3,44 @@ class ThousandsController < ApplicationController
     #var : thing:text
 
 def index
-    @thousand = thousand.all
+    @thousand = Thousand.all
+end
+
+def show
+    @thousand = Thousand.find(params[:id])
 end
 
 def new
 
 end
 
+
+
 def create
-    @thousand = thousand.new(thousand_params)
-    @thousand.save
-    redirect_to @thousands
+    i = 0
+
+     while i < 1000
+        i=i+1
+        @thousand = Thousand.new(:thing => i)
+        @thousand.save
+
+     end
+
+     redirect_to thousands_path
+        
 end
 
+def destroy
+    @thousand = Thousand.find(params[:id])
+    @thousand.destroy
+    
+    redirect_to thousand_index_path
 
+end
 
-
-
-
-
+private def thousand_params
+    params.require(:thousands).permit(:thing)
+end 
 
 end
 

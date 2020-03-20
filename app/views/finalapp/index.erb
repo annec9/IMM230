@@ -17,8 +17,9 @@
 <button onclick="window.location.href = 'http://localhost:3000/finalapp/new';">New Game</button>
 <br><br>
 
+
 <% @teashop.each do |teashop| %>
-    <div><h3><strong><%= teashop.cafename %>'s Cafe</strong> (<%= teashop.teacount%>)<h3>
+    <div><h3><strong><%= teashop.cafename %>'s Cafe</strong><h3>
     <button><%= link_to "Load Game", finalapp_path(teashop.id) %></button>
     
     </div><br>

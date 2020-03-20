@@ -11,7 +11,7 @@
 </head>
 <h1>SETTINGS ⤦</h1>
 <body>
-<%= form_for @teashop, url: teashop_path(@teashop), method :patch do |f| %>
+<%= form_for @teashop, url: finalapp_path(@teashop), method: :patch do |f| %>
     <%= f.hidden_field :teacount, value: "0" %>
     <%= f.hidden_field :autoclick, value: "0" %>
     <%= f.text_field :cafename %>

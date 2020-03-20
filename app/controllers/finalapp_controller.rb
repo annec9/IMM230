@@ -25,7 +25,7 @@ class FinalappController < ApplicationController
         @teashop = Teashop.find(params[:id])
 
         if (@teashop.update (teashop_params))
-                redirect @post
+                redirect_to finalapp_path(@teashop)
         else
             render 'edit'
         end

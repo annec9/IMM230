@@ -5,9 +5,9 @@
         document.getElementById('amountAutoClick').innerHTML = autoClick + " owned";
         document.getElementById('costAutoClick').innerHTML = "Automatic Tea Brewer: " + ((autoClick + 1) * 12) + " tea";
     }
-    
-    var teacount = 0;
-    var autoClick = 0;
+
+    teacount = 0; 
+    autoClick = 0;
     
     function timer() {
         teacount = teacount + autoClick;
@@ -31,25 +31,30 @@
 
 <body>
 <h1><%= @teashop.cafename %>'s Cafe</h1>
+
 <input type="text" id="text" disabled> cups of the tea
 
 <br><br>
 <button onclick="add()">Make some tea</button>
 
 <br><br><br><h2>Upgrades</h2>
-<span title="auto clicks every second" class="tooltipster"><button onclick="buyAutoClick()" id="costAutoClick">Automatic Tea Brewer: 12 tea</button> <span>
+<span title="auto clicks every second" class="tooltipster"><button onclick="buyAutoClick()" id="costAutoClick">Automatic Tea Brewer: 12 tea</button> </span>
 <p id="amountAutoClick">0 Owned</p>
 
 <br><h2>Settings</h2>
 
-<button onClick="">Save</button> 
-<button><%= link_to "Delete", finalapp_path, 
+
+
+
+
+<button onClick="save()">Save</button>
+<button onClick="load()">Load</button>
+<button><%= link_to "Change Name", edit_finalapp_path(@teashop) %></Button>
+<button onClick="localStorage.clear()"><%= link_to "Delete", finalapp_path, 
     method: :delete,
     data: {confirm: 'Are you sure?'} %></button>
 <div><p> <br>
  </p><div>
-
-
 
 
  <script>
@@ -58,7 +63,21 @@
     update()
  }
 
- function save(){}
+ function save(){
+    localStorage.setItem("teacount", teacount);
+    localStorage.setItem("autoClick", autoClick);
+
+ }
+
+function load(){
+    teacount = localStorage.getItem("teacount");
+    teacount = parseInt(teacount);
+    autoClick = localStorage.getItem("autoClick");
+    autoClick = parseInt(autoClick);
+    update()
+
+
+}
 
 
  function buyAutoClick() {

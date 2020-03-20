@@ -10,17 +10,16 @@
 </head>
 
 <body>
-<h1>Insert Something into the Database x1000</h1>
+<h1>1-1000</h1>
 
 <%= form_for :thousands, url: thousands_path do |f| %>
     <p>
-        <%= f.label :thing %> <br>
-        <%= f.text_field :thing %>
+    <%= f.hidden_field :thing, value: "" %>
     </p>
 
 
     <p>
-        <%= f.submit %>
+        <%= f.submit "create 1000 things" %>
     <p>
 
 <% end %></body>

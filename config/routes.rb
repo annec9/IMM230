@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :posts, :finalapp, :thousands
 
-  
+  get '/thousand' => 'post#thousand'
+
   
 end

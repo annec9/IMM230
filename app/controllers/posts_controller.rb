@@ -14,12 +14,14 @@ class PostsController < ApplicationController #accesing database 2 & delete rout
     def new
 
     end
+
     
     def create
         @post = Post.new(post_params)
         @post.save
         redirect_to @post
     end
+
 
     def destroy
         @post = Post.find(params[:id])

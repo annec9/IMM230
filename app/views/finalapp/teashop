@@ -1,3 +1,10 @@
+
+<script type="text/javascript">
+
+var teacount = <%= @teashop.teacount %>;
+var autoClick = <%= @teashop.autoclick %>;</script>
+
+
 <script>
     function update() {
         document.getElementById('text').value = teacount;
@@ -5,9 +12,6 @@
         document.getElementById('amountAutoClick').innerHTML = autoClick + " owned";
         document.getElementById('costAutoClick').innerHTML = "Automatic Tea Brewer: " + ((autoClick + 1) * 12) + " tea";
     }
-    
-    var teacount = 0;
-    var autoClick = 0;
     
     function timer() {
         teacount = teacount + autoClick;
@@ -22,31 +26,38 @@
     body {margin: 1%; text-align:center; background-image: linear-gradient(to right, white, aliceblue);}
     h1 {color:teal;}
     a {color: grey;}
-    a:hover {color: powderblue;}
-    ul {color: grey;}
-</style>
+    a:hover {text-decoration: none; color: teal;}
+    ul {text-decoration: none; color: grey;}
+    button {border-radius: 10px; font-size: small;text-decoration: none; }
+    input {border-radius: 10px;}
+    </style>
 </head>
 
 <body>
-<h1><%= @teashop.cafename %> Cafe</h1>
+<h1><%= @teashop.cafename %>'s Cafe</h1>
+<%= @teashop.teacount %>
 <input type="text" id="text" disabled> cups of the tea
 
 <br><br>
 <button onclick="add()">Make some tea</button>
 
 <br><br><br><h2>Upgrades</h2>
-<span title="auto clicks every second" class="tooltipster"><button onclick="buyAutoClick()" id="costAutoClick">Automatic Tea Brewer: 12 tea</button> <span>
+<span title="auto clicks every second" class="tooltipster"><button onclick="buyAutoClick()" id="costAutoClick">Automatic Tea Brewer: 12 tea</button> </span>
 <p id="amountAutoClick">0 Owned</p>
 
 <br><h2>Settings</h2>
 
-<button onClick="">Save</button> 
-<button onClick="">Change Cafe Name</button> 
-<button onClick="">Delete</button>
+
+
+
+
+<button>save java</button>
+<button><%= link_to "Save", edit_finalapp_path(@teashop) %></Button>
+<button><%= link_to "Delete", finalapp_path, 
+    method: :delete,
+    data: {confirm: 'Are you sure?'} %></button>
 <div><p> <br>
  </p><div>
-
-
 
 
  <script>
@@ -55,7 +66,10 @@
     update()
  }
 
- function save(){}
+ function save(){
+ 
+
+ }
 
 
  function buyAutoClick() {
