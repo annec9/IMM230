@@ -3,19 +3,28 @@
 <style>
     body {margin: 1%; text-align:center; background-image: linear-gradient(to right, white, aliceblue);}
     h1 {color:teal;}
-    a {color: grey;}
-    a:hover {color: powderblue;}
+    a {color: black; text-decoration: none;}
+    a:hover {color: teal;text-decoration: none;}
     ul {color: grey;}
+    div {border-radius: 25px;border: 1.5px solid grey; margin-right: 10%; margin-left: 10%}
+    button {border-radius: 10px; font-size: small;text-decoration: none; }
 </style>
 </head>
 
 <body>
 
-<h1>Tea Shop</h1>
-
-
-
+<h1>TEA SHOP CLICKER</h1>
 <button onclick="window.location.href = 'http://localhost:3000/finalapp/new';">New Game</button>
+<br><br>
+
+<% @teashop.each do |teashop| %>
+    <div><h3><strong><%= teashop.cafename %>'s Cafe</strong> (<%= teashop.teacount%>)<h3>
+    <button><%= link_to "Load Game", finalapp_path(teashop.id) %></button>
+    
+    </div><br>
+<% end %>
+
+
 
 
 </body>

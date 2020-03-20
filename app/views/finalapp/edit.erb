@@ -1,3 +1,4 @@
+<html>
 <head>
 <title>Final</title>
 <style>
@@ -8,8 +9,14 @@
     ul {color: grey;}
 </style>
 </head>
-
+<h1>SETTINGS ⤦</h1>
 <body>
-
+<%= form_for @teashop, url: teashop_path(@teashop), method :patch do |f| %>
+    <%= f.hidden_field :teacount, value: "0" %>
+    <%= f.hidden_field :autoclick, value: "0" %>
+    <%= f.text_field :cafename %>
+    <%=   f.submit "Save Changes"  %>
+<% end %>
 
 </body>
+</html>

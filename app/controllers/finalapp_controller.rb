@@ -12,19 +12,38 @@ class FinalappController < ApplicationController
     end
 
     def new
-
+        @teashop = Teashop.new
     end
 
     def create
-        @teashop = Teashop.new(params[:teashop])
+        @teashop = Teashop.new(teashop_params)
         @teashop.save
-        
-        redirect_to @teashop
-     end
+        redirect_to finalapp_path(@teashop)
+    end
+
+    def update
+        @teashop = Teashop.find(params[:id])
+
+        if (@teashop.update (teashop_params))
+                redirect @post
+        else
+            render 'edit'
+        end
+    end
  
-    def edit
+    def destroy
+        @teashop = Teashop.find(params[:id])
+        @teashop.destroy
+        
+        redirect_to finalapp_index_path
 
     end
 
+    def edit
+        @teashop = Teashop.find(params[:id])
+    end
 
+    private def teashop_params
+        params.require(:teashop).permit(:cafename, :teacount, :autoclick)
+    end 
 end

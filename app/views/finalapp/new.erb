@@ -9,11 +9,11 @@
     ul {color: grey;}
 </style>
 </head>
-
+<h1>YOUR NAME ⤦</h1>
 <body>
-<%= form_for :finalapp, url: finalapp_path do |f| %>
-    <%= f.hidden_field :teacount, value: "" %>
-    <%= f.hidden_field :autoclick, value: "" %>
+<%= form_for @teashop, url: {action: "create"} do |f| %>
+    <%= f.hidden_field :teacount, value: "0" %>
+    <%= f.hidden_field :autoclick, value: "0" %>
     <%= f.text_field :cafename %>
     <%=   f.submit "Start"  %>
 <% end %>

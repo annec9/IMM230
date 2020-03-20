@@ -22,13 +22,15 @@
     body {margin: 1%; text-align:center; background-image: linear-gradient(to right, white, aliceblue);}
     h1 {color:teal;}
     a {color: grey;}
-    a:hover {color: powderblue;}
-    ul {color: grey;}
-</style>
+    a:hover {text-decoration: none; color: teal;}
+    ul {text-decoration: none; color: grey;}
+    button {border-radius: 10px; font-size: small;text-decoration: none; }
+    input {border-radius: 10px;}
+    </style>
 </head>
 
 <body>
-<h1><%= @teashop.cafename %> Cafe</h1>
+<h1><%= @teashop.cafename %>'s Cafe</h1>
 <input type="text" id="text" disabled> cups of the tea
 
 <br><br>
@@ -41,8 +43,9 @@
 <br><h2>Settings</h2>
 
 <button onClick="">Save</button> 
-<button onClick="">Change Cafe Name</button> 
-<button onClick="">Delete</button>
+<button><%= link_to "Delete", finalapp_path, 
+    method: :delete,
+    data: {confirm: 'Are you sure?'} %></button>
 <div><p> <br>
  </p><div>
 
